@@ -19,5 +19,7 @@ A real-time data engineering pipeline that simulates industrial IoT sensor data,
 ```mermaid
 graph TD;
     A(Sensor Simulator) --> B(Kafka);
-    B(Kafka) --> C(Kafka Consumer)
+    B(Kafka (Message Streaming)) --> C(Kafka Consumer (Python ETL));
+    C(Kafka Consumer (Python ETL)) --> D(PostgreSQL (storage Layer));
+    D(PostgreSQL (storage Layer)) --> E(Streamlit Dashboard);
 ```
