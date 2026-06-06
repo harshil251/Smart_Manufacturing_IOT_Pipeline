@@ -15,7 +15,7 @@ A real-time data engineering pipeline that simulates industrial IoT sensor data,
 - Anomaly detection using Machine Learning
 - Docker-based deployment
 
-## Architecture
+## Project Architecture
 ```mermaid
 graph TD;
     A["Sensor Simulator <br> (Python)"] --> B["Kafka <br> (Message Streaming)"];
@@ -23,3 +23,10 @@ graph TD;
     C --> D["PostgreSQL <br> (Storage Layer)"];
     D --> E["Streamlit Dashboard"];
 ```
+## Tech Stack
+### Core
+- Python
+- kafka
+- PostgreSQL
+- Docker
+- Streamlit
