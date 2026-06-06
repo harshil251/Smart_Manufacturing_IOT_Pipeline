@@ -4,4 +4,20 @@ A real-time data engineering pipeline that simulates industrial IoT sensor data,
 ## Project Overiew
 - This project simulates a real-world smart manufacturing system where multiple machines continuously generate sensor data such as temperature, vibration, pressure, and energy consumption.
 
-The system demonstrates an end-to-end data engineering pipeline including data generation, streaming ingestion, transformation, storage, and visualization.
+- The system demonstrates an end-to-end data engineering pipeline including data generation, streaming ingestion, transformation, storage, and visualization.
+
+## Key Features
+- Real time IoT sensor data simulation
+- Streaming data pipeline using Kafka
+- ETL processing with python
+- Data storage in PostgreSQL
+- Interactive Streamlit dashboard
+- Anomaly detection using Machine Learning
+- Docker-based deployment
+
+## Architecture
+```mermaid
+graph TD;
+    A(Sensor Simulator) --> B(Kafka);
+    B(Kafka) --> C(Kafka Consumer)
+```
