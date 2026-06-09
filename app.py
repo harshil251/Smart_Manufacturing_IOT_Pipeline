@@ -15,6 +15,7 @@ st.title("🏭 Smart Manufacturing IoT Dashboard")
 query = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 100"
 df = pd.read_sql(query, conn)
 
+
 st.subheader("Latest Sensor Data")
 st.dataframe(df)
 
@@ -23,3 +24,11 @@ st.line_chart(df['temperature'])
 
 st.subheader("Vibration Trend")
 st.line_chart(df['vibration'])
+
+st.subheader("Anomaly Detection View")
+
+df["color"] = df["anomaly"].apply(
+    lambda x: "red" if x == "ANOMALY" else "green"
+)
+
+st.dataframe(df)

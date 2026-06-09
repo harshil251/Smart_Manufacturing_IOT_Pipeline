@@ -5,5 +5,6 @@ CREATE TABLE sensor_data (
     vibration FLOAT,
     pressure FLOAT,
     energy_usage FLOAT,
-    timestamp TIMESTAMP
+    timestamp TIMESTAMP,
+    anomaly TEXT
 );
