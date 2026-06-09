@@ -6,7 +6,7 @@ class AnomalyDetector:
     def __init__(self):
         self.model = IsolationForest(
             n_estimators=100,
-            contamination=0.05,  # 5% anomalies
+            contamination=0.05,  
             random_state=42
         )
 
@@ -28,7 +28,7 @@ class AnomalyDetector:
         ]]
         df["anomaly"] = self.model.predict(features)
         
-        # -1 = anomaly, 1 = normal
+        
         df["anomaly"] = df["anomaly"].apply(lambda x: "ANOMALY" if x == -1 else "NORMAL")
         return df
     

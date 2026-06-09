@@ -9,14 +9,14 @@ from kafka import KafkaConsumer
 import psycopg2
 import pandas as pd
 
-# Kafka Consumer
+
 consumer = KafkaConsumer(
     'iot-sensors',
     bootstrap_servers='localhost:9092',
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
 )
 
-# PostgreSQL Connection
+
 conn = psycopg2.connect(
     database="iot_db",
     user="postgres",
@@ -27,17 +27,15 @@ conn = psycopg2.connect(
 
 cursor = conn.cursor()
 
-# ML Setup
 detector = AnomalyDetector()
 buffer = []
 
-# Stream Processing
 for message in consumer:
     data = message.value
 
     buffer.append(data)
 
-    # Run ML when buffer fills
+    
     if len(buffer) >= 20:
         df = pd.DataFrame(buffer)
 
@@ -47,7 +45,7 @@ for message in consumer:
         latest = result.iloc[-1]
         anomaly = latest["anomaly"]
 
-        # Insert ALL rows with anomaly label
+        
         for _, row in result.iterrows():
             cursor.execute("""
                 INSERT INTO sensor_data (
